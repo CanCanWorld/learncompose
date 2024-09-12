@@ -192,6 +192,7 @@ fun WeComposeTheme(theme: WeComposeTheme.Theme = WeComposeTheme.Theme.Light, con
     CompositionLocalProvider(LocalWeComposeColors provides colors) {
         MaterialTheme(
             shapes = shapes,
+            typography = Typography,
             content = content
         )
     }

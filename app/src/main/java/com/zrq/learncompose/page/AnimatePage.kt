@@ -33,10 +33,9 @@ fun AnimatePage() {
     var isBig by remember {
         mutableStateOf(false)
     }
-    val size = remember(isBig) {
-        if (isBig) 300.dp else 120.dp
+    val size = remember {
+        120.dp
     }
-    val sizeAnim by animateDpAsState(targetValue = size, label = "")
     val anim = remember {
         Animatable(size, Dp.VectorConverter)
     }

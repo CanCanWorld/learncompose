@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Learncompose"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:hardwareAccelerated="true"
         tools:targetApi="31">
         <activity
             android:name=".activity.HomeActivity"
@@ -36,6 +44,12 @@
         </activity>
         <activity
             android:name=".activity.WebViewActivity"
+            android:exported="true"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/Theme.Learncompose">
+        </activity>
+        <activity
+            android:name=".activity.CoroutineActivity"
             android:exported="true"
             android:theme="@style/Theme.Learncompose">
         </activity>

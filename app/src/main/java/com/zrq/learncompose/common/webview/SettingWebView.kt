@@ -1,13 +1,15 @@
 package com.zrq.learncompose.common.webview
 
 import android.os.Build
-import android.util.Log
 import android.webkit.WebSettings
 import android.webkit.WebView
 
 fun WebView.settingWebView(customUserAgent: String? = null) {
     settings.apply {
-
+        setSupportMultipleWindows(true);
+        javaScriptCanOpenWindowsAutomatically = true
+        allowFileAccess = true
+        allowContentAccess = true
         cacheMode = WebSettings.LOAD_DEFAULT //缓存模式
 
         domStorageEnabled = true //设置支持DomStorage
@@ -16,7 +18,7 @@ fun WebView.settingWebView(customUserAgent: String? = null) {
 
         javaScriptCanOpenWindowsAutomatically = true // 设置允许JS弹窗
 
-        useWideViewPort = true //自适应屏幕）
+        useWideViewPort = true //自适应屏幕
 
         loadWithOverviewMode = true //显示网页或者图片flash的时候,充满全屏
 
@@ -47,8 +49,6 @@ fun WebView.settingWebView(customUserAgent: String? = null) {
 
 
         cacheMode = WebSettings.LOAD_DEFAULT // 设置缓存模式，非常重要，决定了webview缓存资源的方式
-
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) { //https请求的页面中嵌套了http的图片链接时，会导致图片不显示
             mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
